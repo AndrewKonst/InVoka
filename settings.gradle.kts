@@ -18,4 +18,9 @@ dependencyResolutionManagement {
 rootProject.name = "Invoka"
 
 include(":app")
+
 include(":core:ui")
+include(":core:common")
+include(":core:api")
+include(":core:impl")
+

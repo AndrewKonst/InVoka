@@ -3,6 +3,7 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.kotlin
 
 class AndroidFeatureConventionPlugin : Plugin<Project> {
 
@@ -11,6 +12,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             pluginManager.apply {
                 apply("invoka.android.library")
                 apply("kotlin-kapt")
+                apply("kotlin-plugin.parcelize")
             }
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
             dependencies {

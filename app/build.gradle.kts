@@ -1,6 +1,8 @@
 plugins {
     id("invoka.android.application")
     id("invoka.android.application.compose")
+    kotlin("kapt")
+    kotlin("plugin.parcelize")
 }
 
 android {
@@ -20,14 +22,13 @@ android {
         val debug by getting {
             isMinifyEnabled = false
             isShrinkResources = false
-//            signingConfig = signingConfigs.getByName("debug")
-//            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
-//                mappingFileUploadEnabled = false
-//            }
         }
         val release by getting {
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -41,9 +42,14 @@ android {
 
 dependencies {
 
+    implementation(projects.core.common)
+    implementation(projects.core.api)
+    implementation(projects.core.impl)
     implementation(projects.core.ui)
 
+
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.browser)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
@@ -55,5 +61,13 @@ dependencies {
     implementation(libs.androidx.profileinstaller)
 
     implementation(libs.coil.kt)
+    implementation(libs.coil.kt.svg)
+
+    implementation(libs.okhttp.logging)
+
+    implementation(libs.decompose.extensions.composeJetpack)
+
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
 }

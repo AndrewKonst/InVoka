@@ -1,10 +1,10 @@
 plugins {
     id("invoka.android.library")
-    id("invoka.android.library.compose")
+    kotlin("kapt")
 }
 
 android {
-    namespace = "andrewkonst.invoka.core.ui"
+    namespace = "andrewkonst.invoka.core.impl"
 }
 
 dependencies {
@@ -15,10 +15,11 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
 
-    implementation(libs.androidx.lifecycle.runtime)
-    implementation(libs.androidx.lifecycle.common)
+    implementation(libs.kotlinx.serialization.json)
 
-    implementation(libs.decompose)
     implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="push_notifications_notification_default_channel_id">007</string>
+    <string name="push_notifications_notification_default_channel_name">Notifications</string>
+
+    <color name="push_notifications_notification_icon_color">#000</color>
+
+</resources>
